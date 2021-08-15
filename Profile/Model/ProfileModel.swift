@@ -6,18 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct ProfileModel {
     
-    // MARK: - Home
+    // MARK: - RegistrationView
+    var nameTextField = ""
+    var lastNameTextField = ""
+    var emailTextField = ""
+    var passwordSecureField = ""
+    var passwordCoupleSecureField = ""
+    
+    var imageUser: Image?
+    
+    // MARK: - LoginView
+    var emailLoginTextField = ""
+    var passwordLogonTextField = ""
     
     
     
-    
-    
-    
-    // MARK: - Profile
-    
+    // MARK: - HomeTabView
     var curentTabView: Int
 }

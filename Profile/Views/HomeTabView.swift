@@ -1,5 +1,5 @@
 //
-//  ProfileTabView.swift
+//  HomeTabView.swift
 //  Profile
 //
 //  Created by Artem Palyutin on 15.08.2021.
@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct ProfileTabView: View {
+struct HomeTabView: View {
     
     @State private var selectTabView = 0
     
     var body: some View {
+        
+        
+        
         TabView(selection: $selectTabView){
             // MARK: - HomeView
             HomeView(curentTabView: $selectTabView)
@@ -38,7 +41,7 @@ struct ProfileTabView: View {
                 .tag(2)
             
             // MARK: - ProfileView
-            Text("Profile")
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.square")
                     Text("Profile", comment: "TabView")
@@ -61,7 +64,7 @@ struct ProfileTabView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileTabView()
+        HomeTabView()
     }
 }
 

@@ -8,28 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		1A6B6B6926C916AB009442F0 /* ProfileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6826C916AB009442F0 /* ProfileApp.swift */; };
-		1A6B6B6B26C916AB009442F0 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6A26C916AB009442F0 /* ProfileTabView.swift */; };
+		1A6B6B6B26C916AB009442F0 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6A26C916AB009442F0 /* HomeTabView.swift */; };
 		1A6B6B6D26C916AE009442F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6C26C916AE009442F0 /* Assets.xcassets */; };
 		1A6B6B7026C916AE009442F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6F26C916AE009442F0 /* Preview Assets.xcassets */; };
 		1AD830B526C920C4003CAA1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B426C920C4003CAA1F /* HomeView.swift */; };
-		1AD830B826C94D17003CAA1F /* PrifileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B726C94D17003CAA1F /* PrifileView.swift */; };
+		1AD830B826C94D17003CAA1F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B726C94D17003CAA1F /* ProfileView.swift */; };
 		1AD830BA26C94D53003CAA1F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B926C94D53003CAA1F /* ProfileModel.swift */; };
 		1AD830BC26C94DC2003CAA1F /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830BB26C94DC2003CAA1F /* ProfileVM.swift */; };
 		1AD830BE26C94FC1003CAA1F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */; };
+		1AD830C126C98B52003CAA1F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830C026C98B52003CAA1F /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A6B6B6526C916AB009442F0 /* Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B6B6826C916AB009442F0 /* ProfileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApp.swift; sourceTree = "<group>"; };
-		1A6B6B6A26C916AB009442F0 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
+		1A6B6B6A26C916AB009442F0 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		1A6B6B6C26C916AE009442F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A6B6B6F26C916AE009442F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A6B6B7126C916AE009442F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AD830B426C920C4003CAA1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		1AD830B726C94D17003CAA1F /* PrifileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrifileView.swift; sourceTree = "<group>"; };
+		1AD830B726C94D17003CAA1F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1AD830B926C94D53003CAA1F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		1AD830BB26C94DC2003CAA1F /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		1AD830C026C98B52003CAA1F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +110,9 @@
 		1A6B6B7A26C91D5E009442F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1A6B6B6A26C916AB009442F0 /* ProfileTabView.swift */,
+				1A6B6B6A26C916AB009442F0 /* HomeTabView.swift */,
 				1AD830B326C920B0003CAA1F /* HomeView */,
-				1AD830B626C94CE7003CAA1F /* Prifile */,
+				1AD830B626C94CE7003CAA1F /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,13 +125,14 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		1AD830B626C94CE7003CAA1F /* Prifile */ = {
+		1AD830B626C94CE7003CAA1F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1AD830B726C94D17003CAA1F /* PrifileView.swift */,
+				1AD830B726C94D17003CAA1F /* ProfileView.swift */,
 				1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */,
+				1AD830C026C98B52003CAA1F /* LoginView.swift */,
 			);
-			path = Prifile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,10 +206,11 @@
 			files = (
 				1AD830BA26C94D53003CAA1F /* ProfileModel.swift in Sources */,
 				1AD830B526C920C4003CAA1F /* HomeView.swift in Sources */,
-				1A6B6B6B26C916AB009442F0 /* ProfileTabView.swift in Sources */,
+				1A6B6B6B26C916AB009442F0 /* HomeTabView.swift in Sources */,
 				1AD830BE26C94FC1003CAA1F /* RegistrationView.swift in Sources */,
-				1AD830B826C94D17003CAA1F /* PrifileView.swift in Sources */,
+				1AD830B826C94D17003CAA1F /* ProfileView.swift in Sources */,
 				1AD830BC26C94DC2003CAA1F /* ProfileVM.swift in Sources */,
+				1AD830C126C98B52003CAA1F /* LoginView.swift in Sources */,
 				1A6B6B6926C916AB009442F0 /* ProfileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
