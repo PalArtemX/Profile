@@ -13,15 +13,15 @@ struct ProfileTabView: View {
     
     var body: some View {
         TabView(selection: $selectTabView){
-            // View
-            Text("Home")
+            // MARK: - HomeView
+            HomeView(curentTabView: $selectTabView)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home", comment: "TabView")
                 }
                 .tag(0)
             
-            //View
+            // MARK: - View
             Text("Content")
                 .tabItem {
                     Image(systemName: "circle.grid.cross.down.fill")
@@ -29,7 +29,7 @@ struct ProfileTabView: View {
                 }
                 .tag(1)
             
-            // View
+            // MARK: - View
             Text("Content")
                 .tabItem {
                     Image(systemName: "circle.grid.cross.down.fill")
@@ -37,7 +37,7 @@ struct ProfileTabView: View {
                 }
                 .tag(2)
             
-            // View
+            // MARK: - ProfileView
             Text("Profile")
                 .tabItem {
                     Image(systemName: "person.crop.square")

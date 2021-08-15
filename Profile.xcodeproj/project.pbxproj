@@ -11,6 +11,11 @@
 		1A6B6B6B26C916AB009442F0 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6A26C916AB009442F0 /* ProfileTabView.swift */; };
 		1A6B6B6D26C916AE009442F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6C26C916AE009442F0 /* Assets.xcassets */; };
 		1A6B6B7026C916AE009442F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6F26C916AE009442F0 /* Preview Assets.xcassets */; };
+		1AD830B526C920C4003CAA1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B426C920C4003CAA1F /* HomeView.swift */; };
+		1AD830B826C94D17003CAA1F /* PrifileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B726C94D17003CAA1F /* PrifileView.swift */; };
+		1AD830BA26C94D53003CAA1F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830B926C94D53003CAA1F /* ProfileModel.swift */; };
+		1AD830BC26C94DC2003CAA1F /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830BB26C94DC2003CAA1F /* ProfileVM.swift */; };
+		1AD830BE26C94FC1003CAA1F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		1A6B6B6C26C916AE009442F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A6B6B6F26C916AE009442F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A6B6B7126C916AE009442F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD830B426C920C4003CAA1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1AD830B726C94D17003CAA1F /* PrifileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrifileView.swift; sourceTree = "<group>"; };
+		1AD830B926C94D53003CAA1F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1AD830BB26C94DC2003CAA1F /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,7 @@
 		1A6B6B7826C91D58009442F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1AD830B926C94D53003CAA1F /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,6 +100,7 @@
 		1A6B6B7926C91D5B009442F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1AD830BB26C94DC2003CAA1F /* ProfileVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -97,8 +109,27 @@
 			isa = PBXGroup;
 			children = (
 				1A6B6B6A26C916AB009442F0 /* ProfileTabView.swift */,
+				1AD830B326C920B0003CAA1F /* HomeView */,
+				1AD830B626C94CE7003CAA1F /* Prifile */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1AD830B326C920B0003CAA1F /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				1AD830B426C920C4003CAA1F /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		1AD830B626C94CE7003CAA1F /* Prifile */ = {
+			isa = PBXGroup;
+			children = (
+				1AD830B726C94D17003CAA1F /* PrifileView.swift */,
+				1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */,
+			);
+			path = Prifile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD830BA26C94D53003CAA1F /* ProfileModel.swift in Sources */,
+				1AD830B526C920C4003CAA1F /* HomeView.swift in Sources */,
 				1A6B6B6B26C916AB009442F0 /* ProfileTabView.swift in Sources */,
+				1AD830BE26C94FC1003CAA1F /* RegistrationView.swift in Sources */,
+				1AD830B826C94D17003CAA1F /* PrifileView.swift in Sources */,
+				1AD830BC26C94DC2003CAA1F /* ProfileVM.swift in Sources */,
 				1A6B6B6926C916AB009442F0 /* ProfileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
