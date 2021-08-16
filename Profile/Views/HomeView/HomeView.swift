@@ -9,24 +9,24 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Binding var curentTabView: Int
+    @ObservedObject var vm: ProfileVM
     
     var body: some View {
         VStack {
             Button(action: {
-                curentTabView = 3
+                vm.profile.curentTabView = 3
             }, label: {
                 Text("go to profile")
         })
             
             Button(action: {
-                curentTabView = 1
+                vm.profile.curentTabView = 1
             }, label: {
                 Text("go to 1")
             })
             
             Button(action: {
-                curentTabView = 2
+                vm.profile.curentTabView = 2
             }, label: {
                 Text("go to 2")
                     
@@ -47,6 +47,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(curentTabView: .constant(2))
+        HomeView(vm: ProfileVM())
     }
 }

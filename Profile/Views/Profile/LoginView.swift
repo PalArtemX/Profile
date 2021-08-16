@@ -9,17 +9,20 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var user = ""
+    @ObservedObject var vm: ProfileVM
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
+            VStack {
                 Form {
                     Section(header: Text("email")) {
-                        TextField("enter email", text: $user)
+                        TextField("enter email", text: $vm.profile.emailLoginTextField)
                             .keyboardType(.emailAddress)
                     }
+                    
                     Section(header: Text("password")) {
-                        SecureField("enter pasword", text: $user)
+                        SecureField("enter pasword", text: $vm.profile.passwordLoginTextField)
                     }
                     
                     Section {
@@ -33,13 +36,25 @@ struct LoginView: View {
                                 Spacer()
                             }
                             .font(.headline)
-                    })
-                        
+                        })
                     }
+                } // Form
+                
+                HStack {
+                    Text("Don't have an account?")
+                        //.font(.subheadline)
+                        .foregroundColor(.gray)
+                    Button(action: {
+                        isPresented.toggle()
+                    }, label: {
+                        Text("Sign Up")
+                })
                 }
-            
+                
+            } // VStack
+            .sheet(isPresented: $isPresented, content: { RegistrationView(vm: vm) })
             .navigationTitle("Login")
-        }
+        } // NavigationView
     }
 }
 
@@ -56,8 +71,8 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView()
-            LoginView()
+            LoginView(vm: ProfileVM())
+            LoginView(vm: ProfileVM())
                 .preferredColorScheme(.dark)
         }
     }

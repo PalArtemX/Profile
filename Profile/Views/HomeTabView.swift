@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct HomeTabView: View {
-    
-    @State private var selectTabView = 0
+
+    @StateObject var vm = ProfileVM()
     
     var body: some View {
         
         
-        
-        TabView(selection: $selectTabView){
+        TabView(selection: $vm.profile.curentTabView){
             // MARK: - HomeView
-            HomeView(curentTabView: $selectTabView)
+            HomeView(vm: vm)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home", comment: "TabView")
@@ -41,7 +40,7 @@ struct HomeTabView: View {
                 .tag(2)
             
             // MARK: - ProfileView
-            ProfileView()
+            ProfileView(vm: vm)
                 .tabItem {
                     Image(systemName: "person.crop.square")
                     Text("Profile", comment: "TabView")

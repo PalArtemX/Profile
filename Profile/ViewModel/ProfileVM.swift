@@ -10,4 +10,7 @@ import Foundation
 
 class ProfileVM: ObservableObject {
     
+    @Published var profile = ProfileModel(curentTabView: 0)
+    
+    
 }

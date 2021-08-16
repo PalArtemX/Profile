@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @ObservedObject var vm: ProfileVM
+
+    
     var body: some View {
-        Text("ProfileView")
+        LoginView(vm: vm)
     }
 }
 
@@ -25,6 +29,6 @@ struct ProfileView: View {
 
 struct PrifileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(vm: ProfileVM())
     }
 }
