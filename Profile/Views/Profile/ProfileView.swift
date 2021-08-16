@@ -10,10 +10,28 @@ import SwiftUI
 struct ProfileView: View {
     
     @ObservedObject var vm: ProfileVM
-
+    
     
     var body: some View {
-        LoginView(vm: vm)
+        VStack {
+            if vm.signedIn {
+                VStack {
+                    Text("Enter")
+                    Button(action: {
+                        vm.signOut()
+                    }, label: {
+                        Text("Sign Out")
+                    })
+                }
+            } else {
+                LoginView(vm: vm)
+            }
+        }
+        .onAppear {
+            vm.signedIn = vm.isSingnedIn
+        }
+        
+        
     }
 }
 

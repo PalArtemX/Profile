@@ -10,6 +10,7 @@ import SwiftUI
 struct RegistrationView: View {
     
     @ObservedObject var vm: ProfileVM
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -34,23 +35,29 @@ struct RegistrationView: View {
                 Form {
                     
                     Section(header: Text("Name", comment: "Section: Name")) {
-                        TextField("enter name", text: $vm.profile.nameTextField)
-                        TextField("enter last name", text: $vm.profile.lastNameTextField)
+                        //TextField("", text: $vm.profile.nameTextField)
+                        //TextField("", text: $vm.profile.lastNameTextField)
                     }
                          
                     Section(header: Text("Email", comment: "Section: Email")) {
-                        TextField("enter name", text: $vm.profile.emailTextField)
+                        TextField("enter email", text: $vm.profile.emailSignUp)
                             .keyboardType(.emailAddress)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                     }
                     
                     Section(header: Text("Password", comment: "Section: Password")) {
-                        SecureField("enter password", text: $vm.profile.passwordSecureField)
-                        SecureField("enter password two", text: $vm.profile.passwordAgainSecureField)
+                        SecureField("enter password", text: $vm.profile.passSignUp)
+                        //SecureField("", text: $vm.profile.passwordAgainSecureField)
                     }
                     
                     Section {
                         Button(action: {
-                            // cod
+                            guard !vm.profile.emailSignUp.isEmpty, !vm.profile.passSignUp.isEmpty else { return }
+                            
+                            vm.signUp(email: vm.profile.emailSignUp, password: vm.profile.emailSignUp)
+                            
+                            presentationMode.wrappedValue.dismiss()
                         }, label: {
                             HStack {
                                 Spacer()

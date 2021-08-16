@@ -14,16 +14,17 @@ struct ProfileModel {
     // MARK: - RegistrationView
     var nameTextField = ""
     var lastNameTextField = ""
-    var emailTextField = ""
-    var passwordSecureField = ""
+    var emailSignUp = ""
+    var passSignUp = ""
     var passwordAgainSecureField = ""
+    
     var isValid = false
     
     var imageUser: Image?
     
     // MARK: - LoginView
-    var emailLoginTextField = ""
-    var passwordLoginTextField = ""
+    var emailSingIn = ""
+    var passSingIn = ""
     
     
     

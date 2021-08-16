@@ -17,17 +17,21 @@ struct LoginView: View {
             VStack {
                 Form {
                     Section(header: Text("email")) {
-                        TextField("enter email", text: $vm.profile.emailLoginTextField)
+                        TextField("enter email", text: $vm.profile.emailSingIn)
                             .keyboardType(.emailAddress)
                     }
                     
                     Section(header: Text("password")) {
-                        SecureField("enter pasword", text: $vm.profile.passwordLoginTextField)
+                        SecureField("enter pasword", text: $vm.profile.passSingIn)
                     }
                     
                     Section {
                         Button(action: {
-                            // cod
+                            guard !vm.profile.emailSingIn.isEmpty, !vm.profile.passSingIn.isEmpty else { return }
+                            
+                            vm.signIn(email: vm.profile.emailSingIn, password: vm.profile.passSingIn)
+                            
+                            
                         }, label: {
                             HStack {
                                 Spacer()
@@ -42,7 +46,6 @@ struct LoginView: View {
                 
                 HStack {
                     Text("Don't have an account?")
-                        //.font(.subheadline)
                         .foregroundColor(.gray)
                     Button(action: {
                         isPresented.toggle()

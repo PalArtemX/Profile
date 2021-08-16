@@ -8,32 +8,46 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseCore
 
 
 class ProfileVM: ObservableObject {
     
     @Published var profile = ProfileModel(curentTabView: 0)
+    @Published var signedIn = false
     
-    
-    func signInWithEmail(email: String, password: String, complection: @escaping (Bool, String) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { (response, error) in
-            if error != nil {
-                complection(false, (error?.localizedDescription)!)
-                return
-            }
-            complection(true,(response?.user.email)!)
-        }
+    var isSingnedIn: Bool {
+        return Auth.auth().currentUser != nil
     }
     
     
-    func signUoWithEmail(email: String, password: String, complection: @escaping (Bool, String) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { (response, error) in
-            if error != nil {
-                complection(false,(error?.localizedDescription)!)
-                return
+    // MARK: - func
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            guard result != nil, error == nil else { return }
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.signedIn = true
             }
-            complection(true,(response?.user.email)!)
+            
         }
     }
+    
+    func signUp(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard result != nil, error == nil else { return }
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.signedIn = true
+            }
+        }
+    }
+    
+    func signOut() {
+        try? Auth.auth().signOut()
+        
+        self.signedIn = false
+    }
+    
     
 }
