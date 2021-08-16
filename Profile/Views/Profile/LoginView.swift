@@ -50,6 +50,7 @@ struct LoginView: View {
                         Text("Sign Up")
                 })
                 }
+                .padding(.bottom, 50)
                 
             } // VStack
             .sheet(isPresented: $isPresented, content: { RegistrationView(vm: vm) })

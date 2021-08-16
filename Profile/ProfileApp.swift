@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 @main
 struct ProfileApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeTabView()
