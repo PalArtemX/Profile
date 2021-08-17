@@ -14,7 +14,10 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            if vm.signedIn {
+            if vm.profile.signedIn {
+                
+                
+                // FIXME: - create View
                 VStack {
                     Text("Enter")
                     Button(action: {
@@ -23,12 +26,15 @@ struct ProfileView: View {
                         Text("Sign Out")
                     })
                 }
+                
+                
+                
             } else {
                 LoginView(vm: vm)
             }
         }
         .onAppear {
-            vm.signedIn = vm.isSingnedIn
+            vm.profile.signedIn = vm.isSingnedIn
         }
         
         

@@ -52,6 +52,8 @@ struct RegistrationView: View {
                         //SecureField("", text: $vm.profile.passwordAgainSecureField)
                     }
                     
+                    
+                    // MARK: - Button "Sign Up"
                     Section {
                         Button(action: {
                             guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }

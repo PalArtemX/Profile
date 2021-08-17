@@ -16,6 +16,7 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 Form {
+                    // MARK: - User Sing In
                     Section(header: Text("email")) {
                         TextField("enter email", text: $vm.profile.email)
                             .keyboardType(.emailAddress)
@@ -27,6 +28,7 @@ struct LoginView: View {
                         SecureField("enter pasword", text: $vm.profile.password)
                     }
                     
+                    // MARK: - Button "Login"
                     Section {
                         Button(action: {
                             guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }
@@ -45,8 +47,10 @@ struct LoginView: View {
                             .font(.headline)
                         })
                     }
+                    
                 } // Form
                 
+                // MARK: - Button "Sign Up"
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.gray)

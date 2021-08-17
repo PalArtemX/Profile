@@ -11,23 +11,24 @@ import SwiftUI
 
 struct ProfileModel {
     
-    // MARK: - RegistrationView
+    // MARK: - User
     //var nameTextField = ""
     //var lastNameTextField = ""
     //var emailSignUp = ""
     //var passSignUp = ""
     //var passwordAgainSecureField = ""
     
-    var signedIn = false
     
     var imageUser: Image?
     
-    // MARK: - LoginView
+    // MARK: - User Firebase
     var email = ""
     var password = ""
     
-    
+    // MARK: - Firebase
+    var signedIn = false
     
     // MARK: - HomeTabView
     var curentTabView: Int
+    
 }

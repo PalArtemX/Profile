@@ -23,7 +23,7 @@ struct HomeTabView: View {
                 }
                 .tag(0)
             
-            // MARK: - View
+            // FIXME: - To create View 1
             Text("Content")
                 .tabItem {
                     Image(systemName: "circle.grid.cross.down.fill")
@@ -31,7 +31,7 @@ struct HomeTabView: View {
                 }
                 .tag(1)
             
-            // MARK: - View
+            // FIXME: - To create View 2
             Text("Content")
                 .tabItem {
                     Image(systemName: "circle.grid.cross.down.fill")

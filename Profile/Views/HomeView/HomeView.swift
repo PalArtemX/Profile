@@ -12,6 +12,7 @@ struct HomeView: View {
     @ObservedObject var vm: ProfileVM
     
     var body: some View {
+        //FIXME: - To create HomeView
         VStack {
             Button(action: {
                 vm.profile.curentTabView = 3
