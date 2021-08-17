@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2F55EE26CC3A960031DF9F /* LoggedUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2F55ED26CC3A960031DF9F /* LoggedUserView.swift */; };
 		1A67960626CA8A91003773A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A67960526CA8A91003773A8 /* GoogleService-Info.plist */; };
 		1A6B6B6926C916AB009442F0 /* ProfileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6826C916AB009442F0 /* ProfileApp.swift */; };
 		1A6B6B6B26C916AB009442F0 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B6B6A26C916AB009442F0 /* HomeTabView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0B18F0E5438E537B58E3D5C0 /* Pods_Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2F55ED26CC3A960031DF9F /* LoggedUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedUserView.swift; sourceTree = "<group>"; };
 		1A67960526CA8A91003773A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1A6B6B6526C916AB009442F0 /* Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B6B6826C916AB009442F0 /* ProfileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApp.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				1AD830B726C94D17003CAA1F /* ProfileView.swift */,
 				1AD830BD26C94FC1003CAA1F /* RegistrationView.swift */,
 				1AD830C026C98B52003CAA1F /* LoginView.swift */,
+				1A2F55ED26CC3A960031DF9F /* LoggedUserView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -159,7 +162,6 @@
 				5DE62CE7843B63A3FDA065DD /* Pods-Profile.debug.xcconfig */,
 				76399FF2D8927E43D41A2018 /* Pods-Profile.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -279,6 +281,7 @@
 			files = (
 				1AD830BA26C94D53003CAA1F /* ProfileModel.swift in Sources */,
 				1AD830B526C920C4003CAA1F /* HomeView.swift in Sources */,
+				1A2F55EE26CC3A960031DF9F /* LoggedUserView.swift in Sources */,
 				1A6B6B6B26C916AB009442F0 /* HomeTabView.swift in Sources */,
 				1AD830BE26C94FC1003CAA1F /* RegistrationView.swift in Sources */,
 				1AD830B826C94D17003CAA1F /* ProfileView.swift in Sources */,

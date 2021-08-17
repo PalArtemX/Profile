@@ -52,15 +52,19 @@ struct LoginView: View {
                 
                 // MARK: - Button "Sign Up"
                 HStack {
-                    Text("Don't have an account?")
-                        .foregroundColor(.gray)
+                    Text("Don't have an account?", comment: "Button Sing Up")
+                        .foregroundColor(Color(.systemGray3))
                     Button(action: {
                         isPresented.toggle()
                     }, label: {
-                        Text("Sign Up")
+                        HStack {
+                            Text("Sign Up")
+                            Image(systemName: "person.badge.plus")
+                        }
+                        .padding()
                 })
                 }
-                .padding(.bottom, 50)
+                
                 
             } // VStack
             .sheet(isPresented: $isPresented, content: { RegistrationView(vm: vm) })

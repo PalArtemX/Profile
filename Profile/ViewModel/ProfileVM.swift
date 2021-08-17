@@ -9,11 +9,17 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseCore
-
+import SwiftUI
 
 class ProfileVM: ObservableObject {
-    // Model
+    // MARK: - Model
     @Published var profile = ProfileModel(curentTabView: 0)
+    
+    // MARK: - UserDefaults
+    @AppStorage("name_user") var nameUser = ""
+    @AppStorage("email_user") var emailUser = ""
+    
+    
     
     
     
@@ -29,6 +35,7 @@ class ProfileVM: ObservableObject {
                 self?.profile.signedIn = true
             }
         }
+        saveUserProfile(email: email)
     }
     
     func signUp(email: String, password: String) {
@@ -38,12 +45,25 @@ class ProfileVM: ObservableObject {
                 self?.profile.signedIn = true
             }
         }
+        saveUserProfile(email: email)
     }
     
     func signOut() {
         try? Auth.auth().signOut()
         self.profile.signedIn = false
+        removeUserProfile()
     }
     
+    
+    // MARK: - func
+    func saveUserProfile(email: String) {
+        nameUser = profile.nameUser
+        emailUser = email
+    }
+    
+    func removeUserProfile() {
+        nameUser = ""
+        emailUser = ""
+    }
     
 }

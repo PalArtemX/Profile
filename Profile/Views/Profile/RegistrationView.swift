@@ -34,11 +34,11 @@ struct RegistrationView: View {
                 // MARK: - Form Registration
                 Form {
                     
-                    Section(header: Text("Name", comment: "Section: Name")) {
-                        //TextField("", text: $vm.profile.nameTextField)
-                        //TextField("", text: $vm.profile.lastNameTextField)
-                        
-                    }
+//                    Section(header: Text("Name", comment: "Section: Name")) {
+//                        TextField("", text: $vm.profile.nameUser)
+//                        //TextField("", text: $vm.profile.lastNameTextField)
+//                        
+//                    }
                          
                     Section(header: Text("Email", comment: "Section: Email")) {
                         TextField("enter email", text: $vm.profile.email)
