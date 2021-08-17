@@ -37,27 +37,31 @@ struct RegistrationView: View {
                     Section(header: Text("Name", comment: "Section: Name")) {
                         //TextField("", text: $vm.profile.nameTextField)
                         //TextField("", text: $vm.profile.lastNameTextField)
+                        
                     }
                          
                     Section(header: Text("Email", comment: "Section: Email")) {
-                        TextField("enter email", text: $vm.profile.emailSignUp)
+                        TextField("enter email", text: $vm.profile.email)
                             .keyboardType(.emailAddress)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                     }
                     
                     Section(header: Text("Password", comment: "Section: Password")) {
-                        SecureField("enter password", text: $vm.profile.passSignUp)
+                        SecureField("enter password", text: $vm.profile.password)
                         //SecureField("", text: $vm.profile.passwordAgainSecureField)
                     }
                     
                     Section {
                         Button(action: {
-                            guard !vm.profile.emailSignUp.isEmpty, !vm.profile.passSignUp.isEmpty else { return }
+                            guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }
                             
-                            vm.signUp(email: vm.profile.emailSignUp, password: vm.profile.emailSignUp)
+                            vm.signUp(email: vm.profile.email, password: vm.profile.password)
                             
                             presentationMode.wrappedValue.dismiss()
+                            
+                            vm.profile.password = ""
+                            vm.profile.email = ""
                         }, label: {
                             HStack {
                                 Spacer()

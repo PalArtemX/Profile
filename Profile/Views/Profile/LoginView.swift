@@ -17,21 +17,24 @@ struct LoginView: View {
             VStack {
                 Form {
                     Section(header: Text("email")) {
-                        TextField("enter email", text: $vm.profile.emailSingIn)
+                        TextField("enter email", text: $vm.profile.email)
                             .keyboardType(.emailAddress)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                     }
                     
                     Section(header: Text("password")) {
-                        SecureField("enter pasword", text: $vm.profile.passSingIn)
+                        SecureField("enter pasword", text: $vm.profile.password)
                     }
                     
                     Section {
                         Button(action: {
-                            guard !vm.profile.emailSingIn.isEmpty, !vm.profile.passSingIn.isEmpty else { return }
+                            guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }
                             
-                            vm.signIn(email: vm.profile.emailSingIn, password: vm.profile.passSingIn)
+                            vm.signIn(email: vm.profile.email, password: vm.profile.password)
                             
-                            
+                            vm.profile.email = ""
+                            vm.profile.password = ""
                         }, label: {
                             HStack {
                                 Spacer()

@@ -12,21 +12,23 @@ import FirebaseCore
 
 
 class ProfileVM: ObservableObject {
-    
+    // Model
     @Published var profile = ProfileModel(curentTabView: 0)
-    @Published var signedIn = false
     
+    
+    // Firebase
+    @Published var signedIn = false
     var isSingnedIn: Bool {
         return Auth.auth().currentUser != nil
     }
     
     
-    // MARK: - func
+    // MARK: - func Firebase
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 self?.signedIn = true
             }
             
@@ -34,10 +36,10 @@ class ProfileVM: ObservableObject {
     }
     
     func signUp(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 self?.signedIn = true
             }
         }

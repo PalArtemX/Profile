@@ -12,19 +12,19 @@ import SwiftUI
 struct ProfileModel {
     
     // MARK: - RegistrationView
-    var nameTextField = ""
-    var lastNameTextField = ""
-    var emailSignUp = ""
-    var passSignUp = ""
-    var passwordAgainSecureField = ""
+    //var nameTextField = ""
+    //var lastNameTextField = ""
+    //var emailSignUp = ""
+    //var passSignUp = ""
+    //var passwordAgainSecureField = ""
     
-    var isValid = false
+    var signedIn = false
     
     var imageUser: Image?
     
     // MARK: - LoginView
-    var emailSingIn = ""
-    var passSingIn = ""
+    var email = ""
+    var password = ""
     
     
     
