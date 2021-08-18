@@ -13,20 +13,8 @@ struct LoggedUserView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "person.fill.viewfinder")
-                .resizable()
-                .scaledToFit()
-                .frame(maxHeight: 100)
-                .padding()
+            UserPhotoView()
             
-            Button(action: {
-                // cod
-            }, label: {
-                HStack {
-                    Text("Add a Photo")
-                    Image(systemName: "person.fill.viewfinder")
-                }
-            })
             Form {
                 Section(header: Text("Name")) {
                     Text(vm.nameUser)
@@ -44,7 +32,6 @@ struct LoggedUserView: View {
                             }
                         })
                     }
-                    
                 }
                 
                 Section(header: Text("Email")) {
@@ -86,6 +73,16 @@ struct LoggedUserView: View {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 struct LoggedUserView_Previews: PreviewProvider {
     static var previews: some View {

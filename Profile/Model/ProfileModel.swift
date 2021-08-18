@@ -16,13 +16,14 @@ struct ProfileModel {
     var emailUser = ""
     var imageUser: Image?
     var renameTextField = ""
+    var passwordCheck = ""
     
     // MARK: - User Firebase
     var email = ""
     var password = ""
     
     // MARK: - Firebase
-    var signedIn = false // fix
+    var signedIn = false
     
     // MARK: - HomeTabView
     var curentTabView: Int
