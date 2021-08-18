@@ -31,12 +31,18 @@ struct RegistrationView: View {
                         SecureField("enter password...", text: $vm.profile.password)
                         SecureField("enter password again...", text: $vm.profile.passwordCheck)
                     }
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
                     
                     // MARK: - Button "Sign Up"
                     Section {
                         Button(action: {
-
-                            vm.signUp(email: vm.profile.email, password: vm.profile.password)
+                            guard !vm.profile.email.isEmpty else { return }
+                            guard vm.profile.password.count >= 5 else { return }
+                            guard vm.profile.password == vm.profile.passwordCheck else { return }
+                            withAnimation(.easeInOut) {
+                                vm.signUp(email: vm.profile.email, password: vm.profile.password)
+                            }
                             
                             presentationMode.wrappedValue.dismiss()
                         }, label: {

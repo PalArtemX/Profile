@@ -48,7 +48,8 @@ class ProfileVM: ObservableObject {
         saveUserProfile(email: email)
         
         profile.password = ""
-        profile.email = ""
+        //profile.email = ""
+        profile.passwordCheck = ""
     }
     
     func signOut() {
@@ -69,21 +70,7 @@ class ProfileVM: ObservableObject {
         emailUser = ""
     }
     
-    func inputChecks() {
-        guard !profile.email.isEmpty else {
-            print("email Is Empty")
-            return
-        }
-        guard profile.password.count >= 6 else {
-            print("password < 6")
-            return
-        }
-        guard profile.password == profile.passwordCheck else {
-            print("passwords don't match ")
-            return
-        }
-        
-    }
+
     
 }
 

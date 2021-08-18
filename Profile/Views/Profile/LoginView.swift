@@ -33,7 +33,9 @@ struct LoginView: View {
                         Button(action: {
                             guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }
                             
-                            vm.signIn(email: vm.profile.email, password: vm.profile.password)
+                            withAnimation(.easeInOut) {
+                                vm.signIn(email: vm.profile.email, password: vm.profile.password)
+                            }
                             
                             vm.profile.email = ""
                             vm.profile.password = ""
