@@ -39,37 +39,11 @@ struct LoggedUserView: View {
                 }
                 
                 // MARK: - Button Reset Password
-                Section(header: Text("Reset your password")) {
-                    Button(action: {
-                        // cod
-                    }, label: {
-                        HStack {
-                            Spacer()
-                            Text("Reset Password")
-                            Image(systemName: "ellipsis.rectangle")
-                            Spacer()
-                        }
-                        .foregroundColor(Color(.systemRed))
-                        .font(.headline)
-                    })
-                }
+                ButtonResetPasswordView()
             }
             
             // MARK: - Button Log Out
-            HStack {
-                Text("log out and delete name?")
-                    .foregroundColor(Color(.systemGray3))
-                Button(action: {
-                    vm.signOut()
-                }, label: {
-                    HStack {
-                        Text("Log Out")
-                        Image(systemName: "person.badge.minus")
-                    }
-                    .foregroundColor(Color(.systemRed))
-                                                .padding()
-            })
-            }
+            ButtonLoggedLogOutView(vm: vm)
         }
     }
 }
@@ -91,5 +65,57 @@ struct LoggedUserView_Previews: PreviewProvider {
             LoggedUserView(vm: ProfileVM())
                 .preferredColorScheme(.dark)
         }
+    }
+}
+
+
+
+
+struct ButtonResetPasswordView: View {
+    var body: some View {
+        Section(header: Text("Reset your password")) {
+            Button(action: {
+                // cod
+            }, label: {
+                HStack {
+                    Spacer()
+                    Text("Reset Password")
+                    Image(systemName: "ellipsis.rectangle")
+                    Spacer()
+                }
+                .foregroundColor(Color(.systemRed))
+                .font(.headline)
+            })
+        }
+    }
+}
+
+struct ButtonLoggedLogOutView: View {
+    
+    @ObservedObject var vm: ProfileVM
+    @State private var showActionSheet = false
+    
+    var body: some View {
+        HStack {
+            Text("log out and delete name?")
+                .foregroundColor(Color(.systemGray3))
+            Button(action: {
+                //vm.signOut()
+                showActionSheet.toggle()
+            }, label: {
+                HStack {
+                    Text("Log Out")
+                    Image(systemName: "person.badge.minus")
+                }
+                .foregroundColor(Color(.systemRed))
+                .padding()
+            })
+            .actionSheet(isPresented: $showActionSheet) {
+                ActionSheet(title: Text("Log out of your account?"), message: Text("When you exit, the user's information will be deleted!"), buttons: [.cancel(), .destructive(Text("Log Out and Delete"), action: {
+                    vm.signOut()
+                })])
+            }
+        }
+        
     }
 }

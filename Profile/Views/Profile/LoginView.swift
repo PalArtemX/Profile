@@ -30,42 +30,12 @@ struct LoginView: View {
                     
                     // MARK: - Button "Login"
                     Section {
-                        Button(action: {
-                            guard !vm.profile.email.isEmpty, !vm.profile.password.isEmpty else { return }
-                            
-                            withAnimation(.easeInOut) {
-                                vm.signIn(email: vm.profile.email, password: vm.profile.password)
-                            }
-                            
-                            vm.profile.email = ""
-                            vm.profile.password = ""
-                        }, label: {
-                            HStack {
-                                Spacer()
-                                Text("Login")
-                                Image(systemName: "person")
-                                Spacer()
-                            }
-                            .font(.headline)
-                        })
+                        ButtonLogin(vm: vm)
                     }
-                    
                 } // Form
                 
                 // MARK: - Button "Sign Up"
-                HStack {
-                    Text("Don't have an account?", comment: "Button Sing Up")
-                        .foregroundColor(Color(.systemGray3))
-                    Button(action: {
-                        isPresented.toggle()
-                    }, label: {
-                        HStack {
-                            Text("Sign Up")
-                            Image(systemName: "person.badge.plus")
-                        }
-                        .padding()
-                })
-                }
+                SignUpView(isPresented: $isPresented)
                 
                 
             } // VStack
@@ -89,8 +59,67 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             LoginView(vm: ProfileVM())
-            LoginView(vm: ProfileVM())
-                .preferredColorScheme(.dark)
         }
+    }
+}
+
+
+
+
+struct ButtonLogin: View {
+    
+    @ObservedObject var vm: ProfileVM
+    @State private var showAlert = false
+    
+    var body: some View {
+        Button(action: {
+            guard !vm.profile.email.isEmpty, vm.profile.password.count >= 6 else {
+                showAlert.toggle()
+                return }
+            
+            vm.signIn(email: vm.profile.email, password: vm.profile.password)
+            
+            vm.profile.email = ""
+            vm.profile.password = ""
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if vm.isSingnedIn == false {
+                    showAlert.toggle()
+                }
+            }
+        }, label: {
+            HStack {
+                Spacer()
+                Text("Login")
+                Image(systemName: "person")
+                Spacer()
+            }
+            .font(.headline)
+        })
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Attention"), message: Text("Email or password is incorrect"), dismissButton: .cancel())
+        })
+    }
+}
+
+struct SignUpView: View {
+    
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        HStack {
+            Text("Don't have an account?", comment: "Button Sing Up")
+                .foregroundColor(Color(.systemGray3))
+            Button(action: {
+                isPresented.toggle()
+            }, label: {
+                HStack {
+                    Text("Sign Up")
+                    Image(systemName: "person.badge.plus")
+                }
+                .padding()
+            })
+        }
+
     }
 }

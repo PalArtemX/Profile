@@ -15,11 +15,10 @@ class ProfileVM: ObservableObject {
     // MARK: - Model
     @Published var profile = ProfileModel(curentTabView: 0)
     
+    
     // MARK: - UserDefaults
     @AppStorage("name_user") var nameUser = ""
     @AppStorage("email_user") var emailUser = ""
-    
-    
     
     
     
@@ -34,6 +33,7 @@ class ProfileVM: ObservableObject {
             DispatchQueue.main.async {
                 self?.profile.signedIn = true
             }
+            
         }
         saveUserProfile(email: email)
     }
@@ -48,7 +48,6 @@ class ProfileVM: ObservableObject {
         saveUserProfile(email: email)
         
         profile.password = ""
-        //profile.email = ""
         profile.passwordCheck = ""
     }
     
