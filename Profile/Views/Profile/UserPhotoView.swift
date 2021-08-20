@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct UserPhotoView: View {
+    
+    @State private var isShowing = false
+    @State private var avatarImage = UIImage(named: "avatar")!
+    
     var body: some View {
         VStack {
-            Image(systemName: "person.fill.viewfinder")
+            Image(uiImage: avatarImage)
                 .resizable()
                 .scaledToFit()
+                .clipShape(Circle(), style: FillStyle())
+                //.clipShape(Circle())
                 .frame(maxHeight: 100)
-                .padding()
             
             Button(action: {
-                // cod
+                isShowing.toggle()
             }, label: {
                 HStack {
                     Text("Add a Photo")
@@ -25,6 +30,9 @@ struct UserPhotoView: View {
                 }
             })
         }
+        .sheet(isPresented: $isShowing, content: {
+            PhotoPicker(avatarImage: $avatarImage)
+        })
     }
 }
 
