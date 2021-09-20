@@ -70,24 +70,24 @@ struct ButtonSignUpView: View {
     
     var body: some View {
         Button(action: {
-            guard !vm.profile.email.isEmpty else {
+            
+             do {
+                try vm.checkingTheInputSignUp()
+                 vm.signUp(email: vm.profile.email, password: vm.profile.password)
+                 presentationMode.wrappedValue.dismiss()
+            } catch ErrorSignUp.invalidEmail {
                 message = "Email is not entered or entered incorrectly!"
                 showAlert.toggle()
-                return }
-            guard vm.profile.password.count >= 5 else {
+            } catch ErrorSignUp.passwordIsLessThan6Characters {
                 message = "Password must have at least 6 characters!"
                 showAlert.toggle()
-                return }
-            guard vm.profile.password == vm.profile.passwordCheck else {
+            } catch ErrorSignUp.passwordsDoNotMatch {
                 message = "Passwords don't match!"
                 showAlert.toggle()
-                return }
-            vm.signUp(email: vm.profile.email, password: vm.profile.password)
-            
-            // FIXME: - presentationMode dismis
-            presentationMode.wrappedValue.dismiss()
-            
-            
+            } catch {
+                print("Error")
+            }
+
         }, label: {
             HStack {
                 Spacer()

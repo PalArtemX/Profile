@@ -83,7 +83,7 @@ struct ButtonLogin: View {
             vm.profile.password = ""
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if vm.isSingnedIn == false {
+                if vm.isSignedIn == false {
                     showAlert.toggle()
                 }
             }

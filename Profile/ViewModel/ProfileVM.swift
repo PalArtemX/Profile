@@ -23,9 +23,10 @@ class ProfileVM: ObservableObject {
     
     
     // MARK: - Firebase
-    var isSingnedIn: Bool {
+    var isSignedIn: Bool {
             return Auth.auth().currentUser != nil
         }
+    
     // MARK: func Firebase
     func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -69,7 +70,21 @@ class ProfileVM: ObservableObject {
         emailUser = ""
     }
     
-
+    func checkingTheInputSignUp() throws {
+        
+        guard !profile.email.isEmpty else {
+            throw ErrorSignUp.invalidEmail
+        }
+        guard profile.password.count >= 5 else {
+            throw ErrorSignUp.passwordIsLessThan6Characters
+        }
+        guard profile.password == profile.passwordCheck else {
+            throw ErrorSignUp.passwordsDoNotMatch
+            
+        }
+        
+        
+    }
     
 }
 

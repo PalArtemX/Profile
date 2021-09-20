@@ -12,13 +12,13 @@ struct UserPhotoView: View {
     @State private var isShowing = false
     @State private var avatarImage = UIImage(named: "avatar")!
     
+    
     var body: some View {
         VStack {
             Image(uiImage: avatarImage)
                 .resizable()
                 .scaledToFit()
                 .clipShape(Circle(), style: FillStyle())
-                //.clipShape(Circle())
                 .frame(maxHeight: 100)
             
             Button(action: {
@@ -48,6 +48,13 @@ struct UserPhotoView: View {
 
 struct UserPhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotoView()
+        Group {
+            UserPhotoView()
+                .previewLayout(.sizeThatFits)
+            UserPhotoView()
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+        }
+        .padding()
     }
 }

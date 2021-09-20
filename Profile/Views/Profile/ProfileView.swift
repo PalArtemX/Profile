@@ -20,7 +20,7 @@ struct ProfileView: View {
             }
         }
         .onAppear {
-            vm.profile.signedIn = vm.isSingnedIn
+            vm.profile.signedIn = vm.isSignedIn
         }
     }
 }
